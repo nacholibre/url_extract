@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
-from extract_url.extract_url import ExtractUrl
+from url_extract.url_extract import UrlExtract
 
 
 class testCase(object):
@@ -438,7 +438,7 @@ def generateTestCases():
 
 
 if __name__ == '__main__':
-    extractUrl = ExtractUrl()
+    urlExtract = UrlExtract()
 
     testCases = generateTestCases()
 
@@ -446,7 +446,7 @@ if __name__ == '__main__':
     for case in testCases:
         errors = []
 
-        extracted = extractUrl.extract(case.getInput())
+        extracted = urlExtract.extract(case.getInput())
 
         expectedSubdomains = sorted(case.getExpectedSubdomains())
         foundSubdomains = sorted(extracted.getFoundSubdomains())

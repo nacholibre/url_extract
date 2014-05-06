@@ -190,7 +190,7 @@ class DomainPunyTranslator(object):
         return puny
 
 
-class ExtractUrl(object):
+class UrlExtract(object):
     alwaysPuny = False
 
     suffixList = None
@@ -296,7 +296,7 @@ class ExtractUrl(object):
 if __name__ == '__main__':
     url = sys.argv[1]
 
-    extract = ExtractUrl()
+    extract = UrlExtract()
     extracted = extract.extract(url)
     print extracted.getDomain()
     print extracted.getTld()

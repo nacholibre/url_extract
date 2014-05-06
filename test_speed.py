@@ -1,9 +1,9 @@
 #!/usr/bin/python-whoisrequest
-from extract_url.extract_url import ExtractUrl
+from url_extract.url_extract import UrlExtract
 
 
 if __name__ == '__main__':
-    extract = ExtractUrl()
+    extract = UrlExtract()
     with open('/home/nacholibre/whoisrequest/data/com.01.50k.txt', 'r') as f:
         for line in f:
             line = line.strip()
