@@ -9,6 +9,7 @@ class testCase(object):
     returnedTld = None
     returnedSubdomains = []
     returnedUrlQuery = None
+    returnedHostname = None
     valid = True
 
     def __init__(self):
@@ -25,6 +26,12 @@ class testCase(object):
 
     def shouldReturnUrlQuery(self, urlQuery):
         self.returnedUrlQuery = urlQuery
+
+    def shouldReturnHostname(self, hostname):
+        self.returnedHostname = hostname
+
+    def getExpectedHostname(self):
+        return self.returnedHostname
 
     def getExpectedUrlQuery(self):
         return self.returnedUrlQuery
@@ -59,6 +66,15 @@ def generateTestCases():
     case.shouldReturnDomain('dir')
     case.shouldReturnTld('bg')
     case.shouldBeValid(True)
+    cases.append(case)
+
+    case = testCase()
+    case.setInput('http://dnes.dir.bg/news/volen-siderov-Сergey-Нarishkin-16638984?nt=4')
+    case.shouldReturnDomain('dir')
+    case.shouldReturnTld('bg')
+    case.shouldHaveSubdomain('dnes')
+    case.shouldBeValid(True)
+    case.shouldReturnUrlQuery('news/volen-siderov-Сergey-Нarishkin-16638984?nt=4');
     cases.append(case)
 
     case = testCase()

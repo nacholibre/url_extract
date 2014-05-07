@@ -248,17 +248,18 @@ class UrlExtract(object):
         punyInput = self.punyTranslator.isPunyEncoded(url)
         utfInput = self.punyTranslator.hasUtf(url)
 
-        if utfInput:
-            url = self.punyTranslator.encode(url)
-
         urlChunks = url.split('/')
         hostname = urlChunks[0]
+
+        if utfInput:
+            hostname = self.punyTranslator.encode(hostname)
 
         foundSuffix = self.suffixList.searchSuffix(hostname)
 
         urlQuery = None
         valid = True
         foundSubdomains = []
+        withoutTld = None
 
         if len(urlChunks) > 1:
             urlQuery = '/'.join(urlChunks[1:])
