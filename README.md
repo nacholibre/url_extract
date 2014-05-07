@@ -39,4 +39,5 @@ Documentation
 * **getTld()** - Returns the tld of the domain
 * **valid()** - Validates domain and returns True or False
 * **getFoundSubdomains()** - Returns the extracted subdomains as list
+* **getHostname()** - Returns the hostname of the URL
 * **getUrlQuery()** - Returns the query after the first / in the url
