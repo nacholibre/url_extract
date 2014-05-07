@@ -43,6 +43,15 @@ class Result(object):
     def getUrlQuery(self):
         return self.query
 
+    def getHostname(self):
+        hostname = []
+        subdomains = self.getFoundSubdomains()
+        if subdomains:
+            [hostname.append(x) for x in subdomains]
+        hostname.append(self.getDomain())
+        hostname.append(self.getTld())
+        return '.'.join(hostname)
+
     def valid(self):
         return self.domValid
 
@@ -300,3 +309,5 @@ if __name__ == '__main__':
     extracted = extract.extract(url)
     print extracted.getDomain()
     print extracted.getTld()
+    print extracted.getFoundSubdomains()
+    print 'hostname', extracted.getHostname()
