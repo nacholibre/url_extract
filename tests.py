@@ -500,4 +500,4 @@ if __name__ == '__main__':
 
         i = i+1
         if i == len(testCases):
-            print 'All tests passed'
+            print 'You are AWESOME! All tests passed!'
