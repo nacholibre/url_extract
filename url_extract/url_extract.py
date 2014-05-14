@@ -168,23 +168,25 @@ class DomainPunyTranslator(object):
 
     def encode(self, string):
         result = []
-        for chunk in string.split('.'):
-            if self.hasUtf(chunk):
-                chunk = 'xn--' + codecs.encode(chunk.decode('utf8'),
-                                               'punycode')
-            result.append(chunk)
+        if string:
+            for chunk in string.split('.'):
+                if self.hasUtf(chunk):
+                    chunk = 'xn--' + codecs.encode(chunk.decode('utf8'),
+                                                   'punycode')
+                result.append(chunk)
 
         return '.'.join(result)
 
     def decode(self, url):
         decodedChunks = []
 
-        for chunk in url.split('.'):
-            if self.isPunyEncoded(chunk):
-                punycode = '--'.join(chunk.split('--')[1:])
-                chunk = codecs.decode(punycode, 'punycode')
+        if url:
+            for chunk in url.split('.'):
+                if self.isPunyEncoded(chunk):
+                    punycode = '--'.join(chunk.split('--')[1:])
+                    chunk = codecs.decode(punycode, 'punycode')
 
-            decodedChunks.append(chunk)
+                decodedChunks.append(chunk)
 
         url = '.'.join(decodedChunks).encode('utf8')
 
