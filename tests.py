@@ -74,7 +74,7 @@ def generateTestCases():
     case.shouldReturnTld('bg')
     case.shouldHaveSubdomain('dnes')
     case.shouldBeValid(True)
-    case.shouldReturnUrlQuery('news/volen-siderov-Сergey-Нarishkin-16638984?nt=4');
+    case.shouldReturnUrlQuery('news/volen-siderov-Сergey-Нarishkin-16638984?nt=4')
     cases.append(case)
 
     case = testCase()
@@ -403,6 +403,11 @@ def generateTestCases():
 
     case = testCase()
     case.setInput('co.uk')
+    case.shouldBeValid(False)
+    cases.append(case)
+
+    case = testCase()
+    case.setInput('/site/xn----7sbe4aieideh6blm.blogspot.com')
     case.shouldBeValid(False)
     cases.append(case)
 
