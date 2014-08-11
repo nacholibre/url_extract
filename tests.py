@@ -316,7 +316,9 @@ def generateTestCases():
 
     case = testCase()
     case.setInput('blah.uk')
-    case.shouldBeValid(False)
+    case.shouldBeValid(True)
+    case.shouldReturnDomain('blah')
+    case.shouldReturnTld('uk')
     cases.append(case)
 
     case = testCase()
@@ -366,8 +368,9 @@ def generateTestCases():
 
     case = testCase()
     case.setInput('www.niki.uk')
-    case.shouldReturnDomain('www')
-    case.shouldReturnTld('niki.uk')
+    case.shouldReturnDomain('niki')
+    case.shouldHaveSubdomain('www')
+    case.shouldReturnTld('uk')
     case.shouldBeValid(True)
     cases.append(case)
 
@@ -428,6 +431,11 @@ def generateTestCases():
 
     case = testCase()
     case.setInput('')
+    case.shouldBeValid(False)
+    cases.append(case)
+
+    case = testCase()
+    case.setInput('aa')
     case.shouldBeValid(False)
     cases.append(case)
 
