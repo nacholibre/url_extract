@@ -19,10 +19,15 @@ Downloading list...
 'bg'
 >>> extracted.valid()
 >>> True
+>>> extracted = extract.extract('https://sireninfo.com')
+>>> extracted.getDomain()
+'sireninfo'
 >>> extracted = extract.extract('http://police.uk')
 >>> extracted.valid()
 False
 ```
+
+
 Documentation
 --------
 ####*class* **UrlExtract** (datFileMaxAge=86400*31, datFileSaveDir=None, alwaysPuny=None)####
