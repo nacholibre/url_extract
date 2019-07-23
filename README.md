@@ -1,6 +1,9 @@
 URL Extract
 =========
 This module extracts tld, domain, subdomains and query from URLs. It also validates the URLs.
+
+Documentation https://url-extract.readthedocs.io/en/latest/
+
 Installation
 ---------
 ```
